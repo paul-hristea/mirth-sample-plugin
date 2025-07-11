@@ -44,7 +44,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <mirth.version>4.5.0</mirth.version>
+        <mirth.version>4.5.2</mirth.version>
 
         <maven-processor-plugin.version>5.1</maven-processor-plugin.version>
         <maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
@@ -54,8 +54,8 @@
         <miglayout.version>3.7.4</miglayout.version>
 
         <!-- Plugin details -->
-        <mirth.plugin.author>Kaur Palang</mirth.plugin.author>
-        <mirth.plugin.compatible_versions>4.5.0</mirth.plugin.compatible_versions>
+        <mirth.plugin.author>Paul Hristea</mirth.plugin.author>
+        <mirth.plugin.compatible_versions>4.5.2</mirth.plugin.compatible_versions>
         <mirth.plugin.description>A sample Mirth plugin to showcase my Maven plugin.</mirth.plugin.description>
         <mirth.plugin.name>Sample Plugin</mirth.plugin.name>
         <mirth.plugin.path>sampleplugin</mirth.plugin.path>
@@ -118,7 +118,6 @@
             ###################################################################
             -->
 
-            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jarsigner-plugin</artifactId>
@@ -138,7 +137,6 @@
                     <keypass>keypass</keypass>
                 </configuration>
             </plugin>
-           -->
 
             <plugin>
                 <groupId>org.bsc.maven</groupId>
