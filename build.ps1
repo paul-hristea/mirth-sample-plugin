@@ -1,4 +1,3 @@
-jabba use oracle@1.17.0
 # Requires PowerShell 5+ or PowerShell Core
 
 Write-Host "########################################"
@@ -94,20 +93,26 @@ Write-Host "   Packaging plugin..."
 Write-Host ""
 Write-Host "########################################"
 
+# Define subfolder name (typically same as artifact ID or plugin ID)
 $ZIP_FOLDER_NAME = $PLUGIN_PATH
 
+# Create a temporary parent folder for zipping
 $ZIP_STAGE = Join-Path $PLUGIN_PATH "..\zip-stage"
 $ZIP_ROOT = Join-Path $ZIP_STAGE $ZIP_FOLDER_NAME
 
+# Clean previous
 if (Test-Path $ZIP_STAGE) {
     Remove-Item -Recurse -Force $ZIP_STAGE
 }
 
+# Copy entire plugin structure into the staging subfolder
 New-Item -Path $ZIP_ROOT -ItemType Directory -Force | Out-Null
 Copy-Item -Path "$PLUGIN_PATH\*" -Destination $ZIP_ROOT -Recurse -Force
 
+# Create ZIP from inside the staging area
 Push-Location $ZIP_STAGE
 & jar cMf "..\$ZIP_FOLDER_NAME.zip" "$ZIP_FOLDER_NAME"
 Pop-Location
 
+# Clean up temporary stage folder
 Remove-Item -Recurse -Force $ZIP_STAGE
